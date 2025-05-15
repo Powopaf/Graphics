@@ -19,8 +19,8 @@ int initSDL(const char* name, int width, int height) {
             SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
             width, height,
             SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
-    if (gWindow) {
-        SDL_Log("Error creting window: %s", SDL_GetError());
+    if (!gWindow) {
+        SDL_Log("Error creating window: %s", SDL_GetError());
         SDL_Quit();
         return -1;
     }
