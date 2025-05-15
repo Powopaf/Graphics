@@ -3,7 +3,7 @@
 
 int initSDL(const char* name, int width, int height);
 int initGL();
-void blackSreen();
+void blackScreen();
 void closeGL();
 void closeSDL();
 

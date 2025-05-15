@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include "utils/utils.h"
+#include "input/input.h"
 
 int main() {
     if (initSDL("Test", 300, 300) != 0) {
@@ -18,8 +19,14 @@ int main() {
                 case SDL_QUIT:
                     running = SDL_FALSE;
                     break;  
+                case SDL_KEYDOWN:
+                    running = findKey(ev.key.keysym.sym, running);
+                    break;
+                default:
+                    break;
             }
         }
+        blackScreen();
     }
     return EXIT_SUCCESS;
 }
