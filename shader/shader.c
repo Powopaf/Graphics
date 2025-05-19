@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <glad/glad.h>
 
-GLuint compile_shader(GLenum shader_type, char* src) {
+GLuint compile_shader(GLenum shader_type, const char* src) {
     GLuint shader = glCreateShader(shader_type);
+    glShaderSource(shader, 1, &src, NULL);
     glCompileShader(shader);
     GLint success;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
@@ -20,7 +21,7 @@ GLuint compile_shader(GLenum shader_type, char* src) {
     return shader;
 }
 
-GLuint create_shader(char* vertex, char* fragment) {
+GLuint create_shader(const char* vertex, const char* fragment) {
     GLuint shader_v = compile_shader(GL_VERTEX_SHADER, vertex);
     if (!shader_v) {
         return -1;

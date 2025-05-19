@@ -12,6 +12,7 @@ int main() {
     }
 
     SDL_bool running = SDL_TRUE;
+    blackScreen();
     while (running) {
         SDL_Event ev;
         while (SDL_PollEvent(&ev)) {
@@ -26,7 +27,6 @@ int main() {
                     break;
             }
         }
-        blackScreen();
     }
     return EXIT_SUCCESS;
 }

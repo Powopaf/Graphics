@@ -4,6 +4,10 @@
 static SDL_Window* gWindow = NULL;
 static SDL_GLContext gGLCtx = NULL;
 
+SDL_Window* getSDLWindow() {
+    return gWindow;
+}
+
 int initSDL(const char* name, int width, int height) {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         SDL_Log("SDL init video fail, %s", SDL_GetError());

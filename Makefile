@@ -4,7 +4,11 @@ LIB=$(shell sdl2-config --cflags --libs) -lGL -ldl -lm
 SRC=main.c \
 	input/input.c \
 	utils/utils.c \
-	glad/src/glad.c
+	glad/src/glad.c \
+	shader/shader.c \
+	shape/circle.c \
+	shape/cube.c \
+	shape/triangle.c
 
 OBJ=$(SRC:.c=.o)
 EXEC=main.out
