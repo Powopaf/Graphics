@@ -1,21 +1,18 @@
 #include <SDL2/SDL.h>
-#include "../shape/shape.h"
 
-SDL_bool keyQ() {
-    return SDL_FALSE;
+char keyQ() {
+    return 'f';
 }
 
-SDL_bool key1() {
-    draw_cube();
-    return SDL_TRUE;
+char key1() {
+    return 'c';
 }
 
-SDL_bool findKey(Sint32 key, SDL_bool running) {
+void findKey(Sint32 key, char* running) {
    if (key == SDLK_q) {
-        return keyQ();
+        *running = keyQ();
    }
    if (key == SDLK_AMPERSAND) {
-       return key1();
+      *running = key1(); 
    }
-   return running;
 }

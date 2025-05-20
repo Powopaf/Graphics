@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include "utils/utils.h"
 #include "input/input.h"
+#include "shape/shape.h"
 
 int main() {
     if (initSDL("Test", 300, 300) != 0) {
@@ -11,21 +12,26 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    SDL_bool running = SDL_TRUE;
+    char running = 't';
     blackScreen();
-    while (running) {
+    init_cube();
+    while (running != 'f') {
         SDL_Event ev;
         while (SDL_PollEvent(&ev)) {
             switch (ev.type) {
                 case SDL_QUIT:
-                    running = SDL_FALSE;
+                    running = 'f';
                     break;  
                 case SDL_KEYDOWN:
-                    running = findKey(ev.key.keysym.sym, running);
+                        findKey(ev.key.keysym.sym, &running);
                     break;
                 default:
                     break;
             }
+        }
+        switch (running) {
+            case 'c':
+                draw_cube();
         }
     }
     return EXIT_SUCCESS;

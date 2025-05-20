@@ -3,6 +3,6 @@
 
 #include <SDL2/SDL.h>
 
-SDL_bool findKey(Sint32 key, SDL_bool running);
+SDL_bool findKey(Sint32 key, char* running);
 
 #endif
