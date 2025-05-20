@@ -11,7 +11,7 @@ int main() {
     if (initGL() != 0) {
         return EXIT_FAILURE;
     }
-
+    SDL_Window* window = getSDLWindow();
     char running = 't';
     blackScreen();
     init_cube();
@@ -29,10 +29,15 @@ int main() {
                     break;
             }
         }
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         switch (running) {
             case 'c':
                 draw_cube();
+                break;
+            default:
+                break;
         }
+        SDL_GL_SwapWindow(window);
     }
     return EXIT_SUCCESS;
 }
