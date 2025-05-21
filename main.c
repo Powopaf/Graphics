@@ -5,7 +5,7 @@
 #include "shape/shape.h"
 
 int main() {
-    if (initSDL("Test", 300, 300) != 0) {
+    if (initSDL("Test", 1500, 700) != 0) {
         return EXIT_FAILURE;
     }
     if (initGL() != 0) {
