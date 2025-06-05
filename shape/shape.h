@@ -3,7 +3,23 @@
 
 #include <glad/glad.h>
 
-void init_cube();
-void draw_cube();
+// ------------------------------------------------------------------
+// Cube functions (already existing):
+// ------------------------------------------------------------------
+void init_cube(void);
+void draw_cube(void);
 
-#endif
+// *** MODIFIED ***
+// Export the cube’s shader handle and its uMVP uniform location, so
+// triangle.c can reuse exactly the same shader:
+extern GLuint cubeProgram;
+extern GLint  cube_uMVP_loc;
+
+// ------------------------------------------------------------------
+// Triangle/Pyramid functions (renamed from “pyramid” to match your code):
+// ------------------------------------------------------------------
+void init_triangle(void);
+void draw_triangle(void);
+
+#endif // SHAPE_H
+
